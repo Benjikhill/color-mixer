@@ -1,0 +1,31 @@
+* {
+  box-sizing: border-box;
+  margin: 0px;
+  padding: 0px;
+}
+#red {
+  accent-color: red;
+}
+#green {
+  accent-color: green;
+}
+#blue {
+  accent-color: blue;
+}
+#colorLabel {
+  font-family: "Open Sans";
+  font-size: 1.5rem;
+  font-weight: bold;
+  padding-left: 2rem;
+}
+header {
+  background-color: rgba(30, 30, 30, 0.5);
+  padding: 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+main {
+  padding: 100%;
+  background-color: rgb(30, 30, 30);
+}
