@@ -12,7 +12,7 @@ green.addEventListener("input", increaseColor);
 blue.addEventListener("input", increaseColor);
 
 // rgb(255, 255, 255)
-// red.value
+
 function increaseColor() {
   // console.log(typeof red.value);
   let colorFull = `${red.value}, ${green.value}, ${blue.value}`;
@@ -33,3 +33,26 @@ function hexColor(c) {
   }
   return hexValue;
 }
+
+let originalColor = document.querySelector("#originalColor");
+
+function getRandomColor() {
+  fetch("https://dummy-apis.netlify.app/api/color")
+    .then((response) => response.json())
+    .then((data) => {
+      // console.log(originalColor);
+      // console.log(data.color);
+      originalColor.innerHTML = data.color.toLowerCase();
+
+      red.value = data.rgb.r;
+      green.value = data.rgb.g;
+      blue.value = data.rgb.b;
+
+      let randomColorFull = `${red.value}, ${green.value}, ${blue.value}`;
+      main.style.backgroundColor = `rgb(${randomColorFull})`;
+      header.style.backgroundColor = `rgba(${randomColorFull}, 0.461)`;
+    });
+}
+
+let randomColor = document.querySelector("#randomColor");
+randomColor.addEventListener("click", getRandomColor);
